@@ -1,0 +1,27 @@
+<h3>{{ todoList.title }}</h3>
+
+<!--
+    Adding item form
+-->
+<label>
+  Agregar item:
+  <input
+    autocomplete="off"
+    type="text"
+    id="name"
+    #name
+    [(ngModel)]="itemName"
+  />
+</label>
+<button type="submit" (click)="addItem()">Agregar</button>
+
+<!--
+
+    Rendering $items - a liveQuery property
+
+-->
+<ul>
+  <li *ngFor="let item of todoItems$ | async">
+    {{ item.title }}
+  </li>
+</ul>
